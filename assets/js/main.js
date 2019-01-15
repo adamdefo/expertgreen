@@ -10,10 +10,10 @@ var inst = {
 $(function() {
 	var watcherScroll = new WatcherScrollPage();
 
-	var formFeedback = document.querySelector('.form-feedback');
-	if (formFeedback) {
-        var smartFormValidator = new SmartFormValidator('.form-feedback');
+	if (document.querySelector('.js-form-feedback')) {
+		var formFeedback = new SmartFormValidator('.js-form-feedback');
 	}
+	var modalFormFeedback = new SmartFormValidator('.js-modal-form-feedback');
 
 	if (document.querySelector('.js-tabs')) {
 		var tabs = new Tabs('.js-tabs');
@@ -40,7 +40,49 @@ $(function() {
 		burgerTxt.innerText = classie.has(nav, '_opened') ? 'скрыть меню' : 'показать меню';
 	});
 
+	$('.js-form-submit').on('click', function(event) {
+		event.preventDefault();
+		var error = 0;
+		var form = $(this).parent().parent();
+		var $name = form.find('[name="name"]');
+		// if (!name) {
+		// 	classie.add(name, '_error');
+		// 	error++;
+		// };
+		var $email = form.find('[name="email"]');
+		var $msg = form.find('[name="msg"]');
 
+		var requestParams = {
+			name: $name.val(),
+			email: $email.val(),
+			msg: $msg.val()
+		};
+
+		if(!error) {
+			$.ajax({
+				async: true,
+				type: "POST",
+				url: "/ajax/feedback.php",
+				dataType: "json",
+				data: requestParams,
+				success: function(response) {
+					console.log(response)
+				},
+				error: function(error) {
+					console.log(error)
+				}
+			});
+		};
+
+		(function() {
+			requestParams = {};
+			$name.val('');
+			$email.val('');
+			$msg.val('');
+		})();
+
+		return false;
+	});
 
 	// var url = 'api/ip_adress.php';
 	// var json = getFormValues('form-feedback');
@@ -50,7 +92,6 @@ $(function() {
 	// }).catch(function (err) {
 	// 	console.error('Упс! Что-то пошло не так.', err.statusText);
 	// });
-
 
 	var $instafeedLenta = document.querySelector('.instafeed > .instafeed__lenta');
 	$.ajax({
@@ -70,8 +111,8 @@ $(function() {
 		}
 	});
 
-	var $callbackModal = $('.js-md_callback'); // модалка обратной связи
-	$('.js-callback').on('click', function() {
+	var $callbackModal = $('.js-md-callback'); // модалка с формой
+	$('.js-show-form-callback').on('click', function() {
 		$('body').addClass('body-md');
 		$callbackModal.addClass('_show');
 	});

@@ -2,7 +2,7 @@
  * Валидатор форм
  * @author Adam Defo
  */
-(function(window) {
+;(function(window) {
 
 	'use strict';
 
@@ -26,7 +26,7 @@
 		this.$formElements = [].slice.call(this.$el.querySelectorAll('.form__el'));
 		this.formElements = [];
 
-		this.$submitBtn = this.$el.querySelector('.js-submit');
+		this.$submitBtn;
 
 		this.requiredElements = [];
 
@@ -38,8 +38,13 @@
 	SmartFormValidator.prototype._params = {};
 
 	SmartFormValidator.prototype._init = function () {
-		this.$submitBtn.disabled = true;
 		this._initFormElements();
+		this._initSubmitBtn();
+	};
+
+	SmartFormValidator.prototype._initSubmitBtn = function () {
+		this.$submitBtn = this.$el.querySelector('.js-form-submit');
+		this.$submitBtn.disabled = true;
 	};
 
 	// создаст для каждого элемента формы свой объект
