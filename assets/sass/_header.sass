@@ -1,0 +1,92 @@
+.header
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	z-index: 100
+	-webkit-transition: background-color .25s
+	-moz-transition: background-color .25s
+	transition: background-color .25s
+	z-index: 100
+	&-fixed
+		position: fixed
+	&__item
+		display: inline-block
+		vertical-align: middle
+		margin-left: -4px
+		padding: 0 15px
+		&:first-child
+			margin-left: 0
+	&__top
+		background: #ffffff
+		padding: 10px 0
+	&__logo
+		line-height: 0
+	&__nav
+		background-color: #0f8c00
+		text-align: center
+		&-fixed 
+			position: fixed
+			top: 0
+			left: 0
+			width: 100%
+			box-shadow: 0 5px 25px rgba(0,0,0,.15)
+			@media (max-width: 991px)
+				position: static
+		& .nav
+			display: inline-block
+			vertical-align: middle
+	&__info
+		border-left: 2px solid #0f8c00
+		font-size: 1.6rem
+		line-height: 1.65
+		padding-left: 25px
+	&__phone
+		background: rgba(255, 255, 255, 0.1)
+		border-radius: 5px
+		display: block
+		color: #ffffff
+		font-size: 1.9rem
+		line-height: 1
+		padding: 1.05rem 1.45rem
+		background: #f2f8fd
+		color: $blue
+		&-xs
+			display: none
+	&__callback
+		background-color: #93c11c
+		border: 0
+		border-radius: 4px
+		color: #ffffff
+		font-size: 1.4rem
+		font-weight: 700
+		letter-spacing: .1rem
+		padding: .75rem 1.75rem
+		text-transform: uppercase
+		&:hover
+			background-color: #afda41
+			color: #ffffff
+		&:active
+			background-color: #0c8d35
+
+@media (max-width: 991px)
+	.header
+		position: fixed
+		&__nav
+			& .container
+				padding: 0
+			& .nav
+				display: none
+				&._opened
+					display: block
+
+.order-link
+	&__phone
+		color: #ffffff
+		font-size: 2.5rem
+		&:hover
+			color: $link_hover
+	&__txt
+		color: #ffffff
+		&:hover
+			color: $link_hover

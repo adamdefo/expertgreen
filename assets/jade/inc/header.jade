@@ -1,0 +1,44 @@
+header.header
+	.header__top
+		.container
+			.row
+				.header__item.col-5.col-md-6
+					.header__logo
+						a.logo(href="/")
+							img(src="img/logo.png")
+				.header__item.col-4.col-hidden-md
+					.header__info
+						.item с 10:00 до 22:00 без выходных
+						.item
+							a(href="tel:+74950001122")
+								span +7 495 000-11-22
+						.item
+							a(href="mailto:info@mail.ru")
+								span info@mail.ru
+				.header__item.col-3.col-md-6.right
+					.header__order
+						button.btn.btn-orange.js-order
+							span Оставить заявку
+	.header__nav.js-header
+		.container
+			button.burger.js-burger
+				span показать меню
+			nav.nav.nav-header.js-nav
+				.nav__item
+					a.nav__link._active(href="/")
+						span Главная
+				.nav__item
+					a.nav__link(href="#about")
+						span О мастерской
+				.nav__item
+					a.nav__link(href="#services")
+						span Услуги
+				.nav__item
+					a.nav__link(href="#prices")
+						span Цены
+				.nav__item
+					a.nav__link(href="#articles")
+						span Статьи
+				.nav__item
+					a.nav__link(href="/contacts")
+						span Контакты

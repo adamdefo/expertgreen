@@ -1,0 +1,21 @@
+section.section.section-form
+	.container
+		.section__title
+			h2.ttl.ttl-h2 Остались вопросы?
+		.section__form
+			form#form-feedback.form.form-feedback
+				.form__title.center Напишите нам и наш специалист ответит Вам ближайшее время
+				.form__group.row
+					.form__item.col.col-6
+						input.form__el.form__input._required(type="text" name="client_name" value="" _required data-type="text")
+						label.form__label._required Ваше имя
+					.form__item.col.col-6
+						input.form__el.form__input._required(type="text" name="client_email" value="" _required data-type="email")
+						label.form__label._required E-mail
+				.form__group.row
+					.form__item.col
+						textarea.form__el.form__input.form__input-txt._required(name="client_msg" _required data-type="text")
+						label.form__label._required Сообщение
+				.form__group-btn.center
+					button.btn.js-submit(type="submit")
+						span Отправить

@@ -1,0 +1,36 @@
+.slider
+	display: block
+	position: relative
+	height: 500px
+	width: 100%
+	overflow: hidden
+	& .slick-list, & .slick-track
+		height: 100%
+	&__item
+		background-size: cover
+		-moz-background-size: cover
+		-webkit-background-size:cover
+		background-position: center center
+		background-repeat: no-repeat
+		height: 100%
+		width: 100%
+		& .container
+			height: 100%
+	&__content
+		position: absolute
+		left: 15px
+		bottom: 70px
+		width: 50%
+		z-index: 10
+	&__ttl
+		display: inline-block
+		background-color: #0f8c00
+		color: #ffffff
+		font-size: 3rem
+		font-weight: 600
+		line-height: 1.2
+		padding: 10px 15px
+	&__txt
+		background-color: #ffffff
+		line-height: 1.35
+		padding: 15px

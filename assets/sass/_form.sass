@@ -1,0 +1,64 @@
+.form
+  position: relative
+  width: 100%
+  &-feedback
+    max-width: 750px
+    margin: 0 auto
+  &__title
+    color: #000000
+    font-size: 1.8rem
+    font-weight: 500
+    margin-bottom: 15px
+  &__group
+    position: 
+    &-btn
+      margin-top: 15px
+  &__item
+    position: relative
+    padding: 15px
+  &__label
+    position: absolute
+    top: 28px
+    left: 30px
+    display: inline-block
+    vertical-align: middle
+    color: #000000
+    font-size: 1.4rem
+    line-height: 1
+    -webkit-transition: all 0.1s
+    -moz-transition: all 0.1s
+    transition: all 0.1s
+  &__input
+    position: relative
+    background-color: #dfe6e7
+    border: 1px solid #dfe6e7
+    border-radius: 0
+    color: #000000
+    font-size: 1.4rem
+    padding: 11px 5px 11px 15px
+    outline: none
+    width: 100%
+    -webkit-transition: all 0.25s
+    -moz-transition: all 0.25s
+    transition: all 0.25s
+    &:focus
+      background-color: #fefefe
+      & + .form__label
+        display: none
+    &-txt
+      height: 200px
+      padding: 11px 15px
+      resize: none
+  &__select
+    border: 0
+    color: #b9b8b8
+    font-size: .85em
+    font-weight: bold
+    padding: 15px 5px 15px 0
+    text-transform: uppercase
+    outline: none
+    -webkit-transition: all 0.3s
+    -moz-transition: all 0.3s
+    transition: all 0.3s
+    &:focus
+      color: #252525

@@ -1,0 +1,192 @@
+$green: #0f8c00
+$orange: #ED913C
+$link_hover: #EE741D
+$link_hover_border: rgba(238,116,29,.25)
+$blue: #0C54A0
+$blue_border: rgba(12,84,160,.25)
+$ff: 'Open Sans', Arial, Helvetica, sans-serif
+
+*
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+
+html
+	font-size: 10px
+
+body
+	position: relative
+	background: #FFFFFF
+	color: #000000
+	font: 400 15px/1.5 $ff
+	margin: 0
+	padding: 0
+
+html, body
+	height: 100%
+
+.body-md
+	width: 100%
+	height: 100%
+	min-height: 100vh
+	overflow: hidden
+
+a
+	border-bottom: 1px solid transparent
+	color: $blue
+	cursor: pointer
+	outline: none
+	text-decoration: none
+	&:hover
+		color: $link_hover
+	&[href^="tel"]
+		border: 0
+	&.link
+		border-bottom: 1px solid $blue_border 
+		-webkit-transition: all .25s
+		-moz-transition: all .25s
+		transition: all .25s
+		&:hover
+			border-bottom-color: $link_hover_border 
+		&-dash
+			border-bottom: 1px dashed $blue_border
+
+img
+	max-width: 100%
+	height: auto
+
+p
+	font-size: 1.5rem
+	line-height: 1.5
+	margin: 0 0 10px
+	&:last-child
+		margin-bottom: 0
+
+.note
+	// background-color: #FEF4D8
+	// background-color: #dcff78
+	background-color: rgba(255,140,120,.14)
+	color: #ad7777
+	border-radius: 10px
+	margin-bottom: 20px
+	padding: 16px 20px
+
+.center
+	text-align: center
+
+.right
+	text-align: right
+
+.list
+	list-style: none
+	padding: 0
+	margin: 0
+	& li
+		position: relative
+		margin-bottom: 5px
+		&:last-child
+			margin-bottom: 0
+		&:before
+			content: '— '
+			display: inline
+			color: $green
+
+.rubl
+	&:after
+		content: '5'
+		display: inline
+		font-family: 'PT Rouble Sans'
+		font-size: 1.1em
+		line-height: 1
+
+._hide
+	display: none
+._show
+	display: block
+
+.file
+	position: relative
+	display: inline-block
+	font-size: 1.9rem
+	padding-left: 24px
+	&__icon
+		position: absolute
+		top: 4px
+		left: -2px
+		display: block
+		width: 22px
+		height: 22px
+		& svg > path
+			fill: $blue
+			-webkit-transition: all .25s
+			-moz-transition: all .25s
+			transition: all .25s
+	& > span
+		border-bottom: 1px solid $blue_border
+		color: #0C54A0
+		padding-bottom: 2px
+		-webkit-transition: all .25s
+		-moz-transition: all .25s
+		transition: all .25s
+	&:hover
+		& > span
+			border-bottom-color: $link_hover_border
+			color: $link_hover
+		& .file__icon svg > path
+			fill: $link_hover
+	&__info
+		color: #777777
+		&-extension
+		&-size
+			margin-left: 7px
+	
+
+.tabs
+	&__switcher
+		margin: 0
+		padding: 0
+		&-item, .tab
+			display: inline-block
+			vertical-align: top
+			background: #e6e6e6
+			border: 1px solid #e6e6e6
+			border-radius: 5px
+			color: $green
+			cursor: pointer
+			font-size: 1.5rem
+			margin-right: 6px
+			margin-bottom: 10px
+			padding: 11px 15px
+			outline: none
+			-webkit-transition: all .25s
+			-moz-transition: all .25s
+			transition: all .25s
+			&:hover
+				border-color: $green
+			&._active
+				background: $green
+				border-color: $green
+				color: #ffffff
+	&__content
+		&-item
+			display: none
+			&._active
+				display: block
+	&__item
+		display: none
+		&._active
+			display: block
+
+.instafeed
+	max-width: 2000px
+	margin: 0 auto
+	overflow-x: auto
+	&__lenta
+		width: 2000px
+	&__item
+		display: inline-block
+		vertical-align: middle
+		width: 100px
+		height: 100px
+		overflow: hidden
+		line-height: 0

@@ -1,0 +1,64 @@
+.footer
+	position: relative
+	background: url('../img/bgbot.png') top center no-repeat
+	background-size: cover
+	font-size: 1.35rem
+	line-height: 1.5
+	margin-top: 30px
+	padding: 20px 0px
+	z-index: 10
+	.footer__logo
+		line-height: 0
+		margin-bottom: 30px
+		@media (max-width: 780px)
+			text-align: center
+			margin-bottom: 15px
+	.footer__pricelist
+		@media (max-width: 780px)
+			text-align: center
+			margin-bottom: 15px
+	.footer__copyright
+		color: #ffffff
+		font-size: 1.2rem
+		margin-bottom: 5px
+	&__item
+		float: left
+		display: inline-block
+		vertical-align: middle
+		padding: 10px 15px 0
+	&__social
+		margin-bottom: 5px
+	&__rights
+		color: #acacac
+		font-size: 1.2rem
+
+@media (max-width: 780px)
+	.footer
+		padding: 15px
+
+.it-agency
+	position: relative
+	line-height: 1.25
+	padding-left: 127px
+	text-align: left
+	& a
+		border-bottom: 1px solid rgba(255,255,255,.25)
+		color: #ffffff
+		&:hover 
+			border-bottom-color: transparent
+	& img
+		position: absolute
+		top: 3px
+		left: 0
+		width: 117px
+		height: 16px
+
+.social
+	list-style: none
+	margin: 0
+	padding: 0
+	&__item
+		display: inline-block
+		margin-right: 10px
+		&:last-child
+			margin-right: 0

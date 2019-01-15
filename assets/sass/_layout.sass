@@ -1,0 +1,382 @@
+.layout
+	position: relative
+	width: 100%
+	z-index: 50
+
+.gradient
+	background-image: linear-gradient(-134deg,#0083ff 0,#d582ff 100%)
+	position: absolute
+	z-index: -1
+	left: 0
+	top: 0
+	width: 100%
+	height: 100%
+	opacity: 0
+	border-radius: 60px
+	-webkit-filter: blur(60px)
+	filter: blur(60px)
+	-webkit-transform: translate3d(0,0,0)
+	transform: translate3d(0,0,0)
+
+.main
+	position: relative
+	width: 100%
+
+.bottom
+	margin-top: 4.5rem
+
+.notice
+	position: relative
+	background-color: $orange
+	width: 100%
+	&__content
+		font-size: 1.25rem
+		font-weight: bold
+		padding: 10px 0
+		text-align: center
+
+.switcher
+	&__item
+		position: relative
+		display: inline-block
+		vertical-align: top
+		margin-left: -5px
+		&:first-child
+			margin-left: 0
+		// 	& .switcher__label
+		// 		border-radius: 5px 0 0 5px
+		// 		margin-left: 0
+		// &:last-child 
+		// 	& .switcher__label
+		// 		border-radius: 0 5px 5px 0
+	&__radio
+		position: absolute
+		opacity: 0
+		&:checked + .switcher__label
+			position: relative
+			// background: rgba(255, 255, 255, 1)
+			background: rgba(255, 255, 255, 0.15)
+			border: 0
+			// color: #161924
+			color: #ffffff
+			z-index: 10
+		&:checked + .switcher__label_number
+			padding-top: 15px
+			padding-bottom: 15px
+	&__label
+		display: inline-block
+		vertical-align: top
+		background: rgba(255, 255, 255, 0.15)
+		border-radius: 5px
+		color: #ffffff
+		font-size: 1.8rem
+		line-height: 1
+		padding: 19px 20px
+		text-align: center
+		webkit-transition: all .25s
+		-moz-transition: all .25s
+		transition: all .25s
+		&:hover
+			// background: rgba(255, 255, 255, 0.75)
+			color: #161924
+			cursor: pointer
+
+@media (max-width: 768px)
+	.switcher
+		&__item.responsive
+			width: 50%
+		&__item.responsive &__label
+			font-size: 1.8rem
+			padding: 24px 10px
+			width: 100%
+		&__item.responsive &__radio
+			&:checked + .switcher__label_txt
+				padding-top: 25px
+				padding-bottom: 25px
+@media (max-width: 480px)
+	.switcher
+		&__item.responsive &__label
+			font-size: 1.35rem
+			padding: 24px 0
+
+.section
+	position: relative
+	width: 100%
+	z-index: 10
+	&__title
+		position: relative
+		border-bottom: 1px solid #dfe6e7
+		margin-bottom: 15px
+		padding-bottom: 25px
+		text-align: center
+		&:after
+			content: ''
+			position: absolute
+			background-color: #0f8c00
+			left: 50%
+			bottom: -1px
+			margin-left: -40px
+			height: 3px
+			width: 80px
+	&-slider
+		padding-top: 178px
+	&-services
+		padding: 30px 0
+	&-service
+		padding: 210px 0 0
+	&-reasons
+		background-color: #e6e6e6
+		padding: 30px 0
+		& .section__title
+			border-bottom-color: #ffffff
+	&-steps
+		padding: 30px 0
+	&-form
+		padding: 30px 0
+	&__form
+		padding-top: 15px
+	& .content
+		position: relative
+		width: 100%
+		z-index: 5
+	&__content
+		padding: 0 15px
+	&__item
+		background-color: #ffffff
+		padding: 30px 0
+		&_gray
+			background-color: #e6e6e6
+			& .section__title
+				border-color: #ffffff
+
+@media (max-width: 991px)
+	.section
+		&-slider
+			padding-top: 110px
+		&-service
+			padding-top: 180px
+@media (max-width: 575px)
+	.section
+		&-service
+			padding-top: 160px
+
+.service
+	position: relative
+	float: left
+	padding: 15px
+	text-align: center
+	width: 33.33333333%
+	@media (max-width: 1060px)
+		width: 50%
+	@media (max-width: 720px)
+		padding: 0 15px 15px
+		width: 100%
+		&:last-child
+			padding-bottom: 0
+	& a
+		color: #000000
+	&:hover
+		.service__inner
+			background-color: #0f8c00
+			color: #ffffff
+		.service__ico
+			svg path
+				fill: #ffffff
+	&__inner
+		background-color: #ffffff 
+		border: 1px solid #0f8c00
+		height: 240px
+		padding: 15px
+		-webkit-transition: all .25s
+		-moz-transition: all .25s
+		transition: all .25s
+		@media (max-width: 720px)
+			height: 100%
+	&__ico
+		line-height: 0
+		margin-bottom: 20px
+	&__ttl
+		font-size: 1.8rem
+		font-weight: 600
+		margin-bottom: 10px
+	&__content
+		font-size: 1.4rem
+
+.reason
+	position: relative
+	display: inline-block
+	vertical-align: top
+	padding: 15px
+	margin-left: -4px
+	text-align: left
+	width: 50%
+	@media (max-width: 1070px)
+		width: 70%
+		margin: 0 auto
+	@media (max-width: 720px)
+		padding: 0 15px 15px
+		width: 100%
+		&:last-child
+			padding-bottom: 0
+	&:first-child
+		margin-left: 0
+	&:hover
+		.service__inner
+			background-color: #0f8c00
+			color: #ffffff
+	&__inner
+		background-color: #ffffff 
+		height: 145px
+		padding: 15px
+		-webkit-transition: all .25s
+		-moz-transition: all .25s
+		transition: all .25s
+		@media (max-width: 1070px)
+			height: 100%
+		&:before
+			content: ''
+			display: inline-block
+			vertical-align: middle
+			height: 100%
+			width: 0
+	&__ico
+		display: inline-block
+		vertical-align: middle
+		line-height: 0
+		margin-right: 15px
+		width: 44px
+	&__ttl
+		font-size: 1.8rem
+		font-weight: 600
+		margin-bottom: 5px
+	&__content
+		display: inline-block
+		vertical-align: middle
+		width: calc(100% - 67px)
+	&__txt
+		font-size: 1.4rem
+
+.steps
+	padding-top: 25px
+.step
+	position: relative
+	float: left
+	display: inline-block
+	vertical-align: top
+	padding: 15px
+	text-align: center
+	width: 20%
+	@media (max-width: 1070px)
+		width: 50%
+	@media (max-width: 720px)
+		padding: 0 15px 30px
+		width: 100%
+		&:last-child
+			padding-bottom: 0
+	&__ico
+		display: inline-block
+		vertical-align: middle
+		line-height: 0
+		margin-bottom: 50px
+		@media (max-width: 720px)
+			height: 100%
+			margin-bottom: 25px
+			& img
+				height: 100%
+		@media (max-width: 480px)
+			height: 80px
+	&__ttl
+		font-size: 2.4rem
+		line-height: 1.2
+		font-weight: 500
+		@media (max-width: 720px)
+			font-size: 1.8rem
+
+.support
+	&__item
+		display: inline-block
+		vertical-align: middle
+		& .txt
+			font-size: 2.4rem
+			line-height: 3.2rem
+		&_phone
+			margin-left: 70px
+	&__phone
+		font-size: 5rem
+		& a
+			&:before
+				content: ''
+				display: inline-block
+				vertical-align: middle
+				background: url('../img/support.png') 0 0 no-repeat
+				background-size: 97px 111px
+				border: 0
+				margin-right: 27px
+				width: 97px
+				height: 111px
+			& span 
+				border-bottom: 1px solid $blue_border
+				color: $blue
+				-webkit-transition: all .25s
+				-moz-transition: all .25s
+				transition: all .25s
+			&:hover
+				& span
+					border-bottom-color: $link_hover_border
+					color: $link_hover
+
+@media (max-width: 980px)
+	.section
+
+.phone a
+	font-size: 1.5em
+	color: #333333
+
++keyframes(fadeUp)
+	0%
+		opacity: 0
+		transform: translate3d(0, 30px, 0)
+	100%
+		transform: translate3d(0, 0, 0)
+
+.tbl
+	border-collapse: collapse
+	width: 100%
+	& th
+		color: #000000
+		font-size: 1.8rem
+		padding: 8px 0
+	& td
+		font-size: 1.6rem
+		padding: 8px 20px
+		&.title
+			color: $green
+	& tbody
+		& tr:nth-child(odd)
+			& td
+				background-color: #e6e6e6
+
+.chain__list
+	margin: 0
+	padding: 0
+.chain__item
+	display: inline-block
+	vertical-align: middle
+	color: $blue
+	font-size: 10px
+	font-weight: 300
+	text-transform: uppercase
+	&:last-child
+		margin-right: 0
+.chain__item + .chain__item:before
+	content: '/'
+	display: inline-block
+	vertical-align: middle
+	margin-right: 4px
+.chain__link
+	display: inline-block
+	vertical-align: middle
+	border: none
+	color: $blue
+	.chain__link:hover
+		color: $link_hover
