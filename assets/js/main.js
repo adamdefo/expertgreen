@@ -1,12 +1,3 @@
-var instToken = '461538648.5e03d6a.b61627b45ea14d95a0cd48ed43835d2e'; // maylo77
-
-var inst = {
-	apiUrl: 'https://api.instagram.com/v1/',
-	token: '3069679269.e96a138.ed7f70441e274e53ba2a7abd854f71c2',
-	userId: '3069679269',
-	cliendId: 'e96a138982fa4ce481823904dbb0be39'
-}
-
 $(function() {
 	var watcherScroll = new WatcherScrollPage();
 
@@ -93,24 +84,6 @@ $(function() {
 	// 	console.error('Упс! Что-то пошло не так.', err.statusText);
 	// });
 
-	var $instafeedLenta = document.querySelector('.instafeed > .instafeed__lenta');
-	$.ajax({
-		async: true,
-		type: 'GET',
-		url: inst.apiUrl + 'users/' + inst.userId + '/media/recent',
-		dataType: 'jsonp',
-		data: {access_token: inst.token, count: 20},
-		success: function(response) {
-			for( x in response.data ){
-				$($instafeedLenta).append('<div class="instafeed__item"><a href="'+ response.data[x].link +'" target="_blank"><img src="'+ response.data[x].images.low_resolution.url +'"/></a></div>');
-			}
-			// console.log(response);
-		},
-		error: function(error) {
-			console.log(error);
-		}
-	});
-
 	var $callbackModal = $('.js-md-callback'); // модалка с формой
 	$('.js-show-form-callback').on('click', function() {
 		$('body').addClass('body-md');
@@ -128,4 +101,32 @@ $(function() {
 		$('body').removeClass('body-md');
 		$(this).parent().removeClass('_show');
 	});
+
+	var pathToPlaceMarkIcon = './img/';
+	var yaMapCenter = [55.714082548110134,37.66964849734497];
+	var yaMap;
+	ymaps.ready(initMap);
+	function initMap() { 
+		yaMap = new ymaps.Map('map', {
+			center: yaMapCenter,
+			zoom: 16,
+			controls: ['zoomControl']
+		});
+		var placeMark = new ymaps.Placemark(
+			[55.71419156901884,37.67091449999999],
+			{
+				hideIcon: false,
+				hintContent: 'Эксперт грин, 1-я улица Машиностроения, 10',
+				// balloonContent: 'Содержимое метки' + index
+			},
+			{
+				iconLayout: 'default#image',
+				iconImageHref: pathToPlaceMarkIcon + 'metka.png',
+				iconImageSize: [46, 63],
+				iconImageOffset: [-20, -54]
+			}
+		);
+		yaMap.geoObjects.add(placeMark);
+		yaMap.behaviors.disable('scrollZoom');
+	}
 });
