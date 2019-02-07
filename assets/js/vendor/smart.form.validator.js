@@ -52,7 +52,7 @@
 		var self = this;
 		this.$formElements.forEach(function (el, id) {
 			self.formElements.push({
-				id,
+				id: id,
 				$el: el,
 				name: el.name,
 				type: el.getAttribute('data-type'),
@@ -66,7 +66,7 @@
 
 	SmartFormValidator.prototype._addEvent = function (el) {
 		var self = this;
-		el.addEventListener('change', function () {
+		el.addEventListener('keyup', function () {
 			self._validate();
 		});
 	};

@@ -121,10 +121,13 @@
 	&-slider
 		padding-top: 178px
 	&-page
-		padding: 30px 0
+		font-size: 1.8rem
+		padding: 210px 0 0
 	&-services
+		font-size: 1.8rem
 		padding: 30px 0
 	&-service
+		font-size: 1.8rem
 		padding: 210px 0 0
 	&-reasons
 		background-color: #e6e6e6
@@ -141,6 +144,11 @@
 		position: relative
 		width: 100%
 		z-index: 5
+	&__cover
+		line-height: 0
+		text-align: center
+		& img
+			border-radius: 7px
 	&__content
 		padding: 0 15px
 	&__item
@@ -359,6 +367,11 @@
 		& tr:nth-child(odd)
 			& td
 				background-color: #e6e6e6
+	&-default
+		& tbody
+			& tr:nth-child(odd)
+				& td
+					background-color: #ffffff
 
 .chain__list
 	margin: 0

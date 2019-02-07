@@ -3,19 +3,24 @@
 	.md__container
 		.md__inner
 			.md-close.js-md-close Закрыть
-			.md__header
-				.title Оставить заявку
-			.md__content
-				form.form.form-feedback.js-modal-form-feedback(action="/ajax/callback.php" method="POST")
-					.form__title.center Напишите нам и наш специалист ответит Вам ближайшее время
-					.form__group.row
-						.form__item.col.col-6
-							input.form__el.form__input._required(type="text" name="name" value="" _required data-type="text" placeholder="Ваше имя")
-						.form__item.col.col-6
-							input.form__el.form__input._required(type="text" name="email" value="" _required data-type="email" placeholder="E-mail")
-					.form__group.row
-						.form__item.col
-							textarea.form__el.form__input.form__input-txt._required(name="msg" _required data-type="text" placeholder="Сообщение")
-					.form__group-btn.center
-						button.btn.js-form-submit(type="submit")
-							span Отправить
+			.md__frontside
+				.md__header
+					.title Оставить заявку
+				.md__content
+					form.form.form-feedback.js-modal-form-feedback(action="/ajax/callback.php" method="POST")
+						.form__title.center Напишите нам и наш специалист ответит Вам ближайшее время.
+						.form__group.row
+							.form__item.col.col-6
+								input.form__el.form__input._required(type="text" name="name" value="" _required data-type="text" placeholder="Ваше имя")
+							.form__item.col.col-6
+								input.form__el.form__input._required(type="text" name="email" value="" _required data-type="email" placeholder="E-mail")
+						.form__group.row
+							.form__item.col
+								textarea.form__el.form__input.form__input-txt._required(name="msg" _required data-type="text" placeholder="Сообщение")
+						.form__group-btn.center
+							button.btn.js-form-submit(type="submit")
+								span Отправить
+			.md__backside.center
+				.md__header
+					.title.green Спасибо!
+				.subttl Ваша заявка отправлена.

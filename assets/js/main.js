@@ -31,6 +31,37 @@ $(function() {
 		burgerTxt.innerText = classie.has(nav, '_opened') ? 'скрыть меню' : 'показать меню';
 	});
 
+		// var url = 'api/ip_adress.php';
+	// var json = getFormValues('form-feedback');
+
+	// makeRequest('POST', url, json).then(function (response) {
+	// 	var res = JSON.parse(response);
+	// }).catch(function (err) {
+	// 	console.error('Упс! Что-то пошло не так.', err.statusText);
+	// });
+
+	var $callbackModal = $('.js-md-callback'); // модалка с формой
+	var $frontside = $callbackModal.find('.md__frontside');
+	var $backside = $callbackModal.find('.md__backside');
+	console.log($backside)
+	$('.js-show-form-callback').on('click', function() {
+		$('body').addClass('body-md');
+		$callbackModal.addClass('_show');
+	});
+
+	// закрытие модалки при нажатие на overlay
+	$('.js-md-close').on('click', function() {
+		$('body').removeClass('body-md');
+		$(this).parent().parent().parent().removeClass('_show');
+	});
+
+	// закрытие модалки при нажатие на крестик
+	$('.md__overlay').on('click', function() {
+		$('body').removeClass('body-md');
+		$(this).parent().removeClass('_show');
+	});
+
+	// отправка формы с заявкой
 	$('.js-form-submit').on('click', function(event) {
 		event.preventDefault();
 		var error = 0;
@@ -49,7 +80,7 @@ $(function() {
 			msg: $msg.val()
 		};
 
-		if(!error) {
+		if(error) {
 			$.ajax({
 				async: true,
 				type: "POST",
@@ -65,6 +96,13 @@ $(function() {
 			});
 		};
 
+		$frontside.addClass('_hide');
+		$backside.addClass('_show');
+		setTimeout(function () {
+			$frontside.removeClass('_hide');
+			$backside.removeClass('_show');
+		}, 7000);
+
 		(function() {
 			requestParams = {};
 			$name.val('');
@@ -73,33 +111,6 @@ $(function() {
 		})();
 
 		return false;
-	});
-
-	// var url = 'api/ip_adress.php';
-	// var json = getFormValues('form-feedback');
-
-	// makeRequest('POST', url, json).then(function (response) {
-	// 	var res = JSON.parse(response);
-	// }).catch(function (err) {
-	// 	console.error('Упс! Что-то пошло не так.', err.statusText);
-	// });
-
-	var $callbackModal = $('.js-md-callback'); // модалка с формой
-	$('.js-show-form-callback').on('click', function() {
-		$('body').addClass('body-md');
-		$callbackModal.addClass('_show');
-	});
-
-	// закрытие модалки при нажатие на overlay
-	$('.js-md-close').on('click', function() {
-		$('body').removeClass('body-md');
-		$(this).parent().parent().parent().removeClass('_show');
-	});
-
-	// закрытие модалки при нажатие на крестик
-	$('.md__overlay').on('click', function() {
-		$('body').removeClass('body-md');
-		$(this).parent().removeClass('_show');
 	});
 
 	var pathToPlaceMarkIcon = './img/';
